@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kapicúa - Dominó online para Android y iPhone</title>
+  <meta
+    name="description"
+    content="Descarga Kapicúa y disfruta del dominó en Android y iPhone."
+  />
+
+  <!-- IMPORTANTE: cambia estas URLs por las tuyas -->
+  <link
+    rel="canonical"
+    href="https://mikhailpolozhaev.github.io/kapicua/"
+  />
+
+  <!-- Vista previa para WhatsApp, Facebook, Telegram, LinkedIn, etc. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Kapicúa" />
+  <meta
+    property="og:title"
+    content="Kapicúa - El dominó en tu móvil"
+  />
+  <meta
+    property="og:description"
+    content="Juega al dominó estés donde estés. Disponible para Android y iPhone."
+  />
+  <meta
+    property="og:url"
+    content="https://mikhailpolozhaev.github.io/kapicua/"
+  />
+  <meta
+    property="og:image"
+    content="https://mikhailpolozhaev.github.io/kapicua/kapicua-share.jpg"
+  />
+  <meta
+    property="og:image:secure_url"
+    content="https://mikhailpolozhaev.github.io/kapicua/kapicua-share.jpg"
+  />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta
+    property="og:image:alt"
+    content="Kapicúa, juego de dominó para Android y iPhone"
+  />
+
+  <!-- Vista previa para X/Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Kapicúa - El dominó en tu móvil"
+  />
+  <meta
+    name="twitter:description"
+    content="Descarga Kapicúa para Android y iPhone."
+  />
+  <meta
+    name="twitter:image"
+    content="https://mikhailpolozhaev.github.io/kapicua/kapicua-share.jpg"
+  />
+
+  <meta name="theme-color" content="#10281f" />
+
+  <style>
+    :root {
+      --background: #0d1f19;
+      --background-light: #15362a;
+      --panel: rgba(18, 49, 38, 0.92);
+      --gold: #d5af59;
+      --gold-light: #f0d88c;
+      --text: #ffffff;
+      --muted: #d8e2dc;
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(213, 175, 89, 0.14), transparent 34%),
+        linear-gradient(145deg, var(--background-light), var(--background));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      width: min(100%, 980px);
+      background: var(--panel);
+      border: 2px solid rgba(213, 175, 89, 0.75);
+      border-radius: 28px;
+      box-shadow: 0 22px 70px var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 560px;
+    }
+
+    .content {
+      padding: 64px 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.1rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      color: var(--gold-light);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .subtitle {
+      max-width: 540px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.65;
+    }
+
+    .store-buttons {
+      display: grid;
+      gap: 14px;
+      margin-top: 34px;
+      max-width: 430px;
+    }
+
+    .store-button {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 72px;
+      padding: 14px 20px;
+      color: #fff;
+      text-decoration: none;
+      background: #080b0a;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .store-button:hover,
+    .store-button:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+      outline: none;
+    }
+
+    .store-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+    }
+
+    .store-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.12;
+    }
+
+    .store-small {
+      font-size: 0.78rem;
+      color: #d9d9d9;
+    }
+
+    .store-large {
+      margin-top: 4px;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 560px;
+      background:
+        linear-gradient(rgba(9, 28, 21, 0.1), rgba(9, 28, 21, 0.42)),
+        url("kapicua-share.jpg") center / cover no-repeat;
+    }
+
+    .visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 30px 0 60px rgba(13, 31, 25, 0.38);
+      pointer-events: none;
+    }
+
+    .footer {
+      padding: 18px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(213, 175, 89, 0.32);
+      color: #cbd9d1;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 780px) {
+      body {
+        padding: 12px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        padding: 44px 26px 38px;
+        order: 2;
+      }
+
+      .visual {
+        min-height: 320px;
+        order: 1;
+      }
+
+      .visual::after {
+        box-shadow: inset 0 -30px 60px rgba(13, 31, 25, 0.42);
+      }
+
+      .store-buttons {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="content">
+        <p class="eyebrow">Dominó para móvil</p>
+        <h1>Kapicúa</h1>
+
+        <p class="subtitle">
+          Disfruta del dominó estés donde estés. Descarga Kapicúa para
+          Android o iPhone y empieza a jugar.
+        </p>
+
+        <div class="store-buttons">
+          <!-- Sustituye esta URL por el enlace real de Google Play -->
+          <a
+            class="store-button"
+            href="https://play.google.com/store/apps/details?id=com.polozhaev.dominicandom"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Descargar Kapicúa en Google Play"
+          >
+            <span class="store-icon" aria-hidden="true">▶</span>
+            <span class="store-copy">
+              <span class="store-small">Disponible en</span>
+              <span class="store-large">Google Play</span>
+            </span>
+          </a>
+
+          <!-- Sustituye esta URL por el enlace real de App Store -->
+          <a
+            class="store-button"
+            href="https://apps.apple.com/us/app/kapicua/id6793445569"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Descargar Kapicúa en App Store"
+          >
+            <span class="store-icon" aria-hidden="true"></span>
+            <span class="store-copy">
+              <span class="store-small">Descárgalo en el</span>
+              <span class="store-large">App Store</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="visual"
+        role="img"
+        aria-label="Imagen promocional del juego Kapicúa"
+      ></div>
+    </section>
+
+    <footer class="footer">
+      © 2026 Kapicúa ·
+      <a
+        href="https://mikhailpolozhaev.github.io/kapicua-privacy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Política de privacidad
+      </a>
+    </footer>
+  </main>
+</body>
+</html>
