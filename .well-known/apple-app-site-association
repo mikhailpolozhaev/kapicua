@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "REEMPLAZAR_TEAM_ID.REEMPLAZAR_BUNDLE_ID_IOS"
+        ],
+        "components": [
+          {
+            "/": "/kapicua/sala/*",
+            "comment": "Enlaces para unirse a una sala de Kapicúa"
+          }
+        ]
+      }
+    ]
+  }
+}
